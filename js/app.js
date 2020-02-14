@@ -1,5 +1,7 @@
 var contador  = 0; 
 var punto = false;
+var valor ;
+var negativo = false;
 function imprimirNumero(numero){
     
    
@@ -24,6 +26,19 @@ function borrarDisplay(){
     document.getElementById('display').innerHTML = 0; 
     punto = false;
     contador = 0;
+}
+
+function Negativo(){
+    if (negativo == false){
+        valor = document.getElementById('display').innerHTML; 
+        document.getElementById('display').innerHTML = "-"; 
+        document.getElementById('display').innerHTML += valor;
+        negativo = true;
+    }else {
+        valor = document.getElementById('display').innerHTML * -1;
+        document.getElementById('display').innerHTML = valor;
+        negativo = false;
+    }
 }
 
 document.getElementById('1').addEventListener("click", function(){
@@ -63,4 +78,8 @@ document.getElementById('on').addEventListener("click", function(){
 
 document.getElementById('punto').addEventListener("click", function(){
     imprimirNumero('.');
+});
+
+document.getElementById('sign').addEventListener("click", function(){
+    Negativo();
 });
